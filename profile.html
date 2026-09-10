@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IDOR Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="card">
+<h1>Profile Lab</h1>
+<div id="profile"></div>
+<p class="hint">Data dipilih langsung dari parameter id tanpa server-side authorization.</p>
+</main>
+<script>
+// 4) IDOR/BOLA-style issue in a static lab.
+// Real applications must enforce authorization on the server.
+const data = {
+  "1": {name:"Admin", email:"admin@example.test", role:"admin"},
+  "2": {name:"Student", email:"student@example.test", role:"student"}
+};
+const id = new URLSearchParams(location.search).get("id") || "1";
+document.getElementById("profile").textContent =
+  JSON.stringify(data[id] || {error:"not found"}, null, 2);
+</script>
+</body>
+</html>

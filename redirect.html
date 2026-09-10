@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open Redirect Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="card">
+<h1>Open Redirect Lab</h1>
+<p>URL tujuan berasal langsung dari parameter <code>url</code>.</p>
+<button id="go">Continue</button>
+</main>
+<script>
+// 5) Open redirect: no allowlist/validation.
+const target = new URLSearchParams(location.search).get("url");
+document.getElementById("go").onclick = () => {
+  if (target) location.href = target;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Search XSS Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="card">
+<h1>Search Lab</h1>
+<p>Parameter <code>q</code> sengaja dimasukkan ke DOM tanpa escaping.</p>
+<div id="result"></div>
+</main>
+<script>
+// 3) Reflected/DOM XSS-style sink.
+// Lab-only demonstration: innerHTML receives URL-controlled input.
+const q = new URLSearchParams(location.search).get("q") || "";
+document.getElementById("result").innerHTML = "Hasil pencarian: " + q;
+</script>
+</body>
+</html>

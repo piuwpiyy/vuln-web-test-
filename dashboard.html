@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="card">
+  <h1>Dashboard</h1>
+  <p>Role dari localStorage: <strong id="role"></strong></p>
+  <p class="hint">Demo: otorisasi hanya diperiksa di browser.</p>
+  <button onclick="localStorage.removeItem('loggedIn'); location.href='index.html'">Logout</button>
+</main>
+<script>
+// INTENTIONALLY VULNERABLE: authorization can be changed by the user.
+if (localStorage.getItem("loggedIn") !== "true") location.href = "index.html";
+document.getElementById("role").textContent = localStorage.getItem("role") || "unknown";
+</script>
+</body>
+</html>

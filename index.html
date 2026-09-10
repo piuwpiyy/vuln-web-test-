@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VulnLogin Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>VulnLogin Lab</h1>
+    <p class="warning">⚠️ Intentionally vulnerable security lab. Gunakan hanya untuk pengujian lokal/lab milik sendiri.</p>
+
+    <form id="loginForm">
+      <label>Username</label>
+      <input id="username" autocomplete="username" placeholder="admin">
+
+      <label>Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="password">
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="message"></div>
+
+    <section class="lab">
+      <h2>Lab endpoints</h2>
+      <a href="profile.html?id=1">Profile #1</a>
+      <a href="redirect.html?url=https://example.com">Redirect demo</a>
+      <a href="search.html?q=hello">Search / XSS demo</a>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
